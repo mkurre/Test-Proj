@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="b5c650e8-c9e8-45ac-b6d3-89bf0166e570" >
+		<db:my-sql-connection host="${host}" port="${port}" user="${secure::user}" password="${secure::password}" database="${database}" />
+	</db:config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="491b970c-df66-4e78-a870-a9de7570d15d" >
+		<http:listener-connection host="0.0.0.0" port="8092" protocol="HTTPS">
+			<tls:context enabledProtocols="https">
+				<tls:key-store type="pkcs12" path="devkeystore.pfx" keyPassword="mule123" password="mule123"/>
+			</tls:context>
+		</http:listener-connection>
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="7872f17e-9ba8-4428-a142-b218260b1e69" file="${env}.properties" />
+	<global-property doc:name="Global Property" doc:id="209a01a0-c339-49b6-a5a4-edbd2ab6dcb4" name="env" value="Design" />
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="fc27a2cc-5ae3-4ccd-b381-1823d66ba3bc" file="${env}.properties" key="password" >
+		<secure-properties:encrypt algorithm="Blowfish" />
+	</secure-properties:config>
+</mule>

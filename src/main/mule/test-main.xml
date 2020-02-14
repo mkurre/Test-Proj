@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="test-mainFlow" doc:id="a2719470-f9ef-4f85-9fb7-8ddac9e1f533" >
+		<http:listener doc:name="Listener" doc:id="4170dac6-7e70-4c7a-a0cd-767f7f86a819" path="/test" config-ref="HTTP_Listener_config"/>
+		<db:select doc:name="Select" doc:id="cb4c1c28-c7e8-4daa-b933-257fec1ac92a" config-ref="Database_Config">
+			<db:sql >SELECT * 
+FROM american</db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="1d50f239-7f89-499d-bc3a-f9e535180588" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+(payload map (value0, index0) ->{
+	Message: value0.planeType,
+	Message2: value0.code1 as String,
+	Message3: value0.takeOffDate,
+	Message4: value0.price
+})]]></ee:set-payload>
+			</ee:message>
+			<ee:variables >
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="91cd53e3-9e1b-4e84-a6c5-1d22b900e1a7" message="#[vars.db]"/>
+	</flow>
+</mule>
