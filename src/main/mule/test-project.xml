@@ -2,8 +2,4 @@
 
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
-	<flow name="test-projectFlow" doc:id="ed6f3a93-91c8-430b-9ddd-01046e9a7474" >
-		<logger level="INFO" doc:name="Logger" doc:id="f69d4863-ca8a-4497-8da0-ec203d989864" />
-	</flow>
-</mule>
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd"></mule>
