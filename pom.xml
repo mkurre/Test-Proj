@@ -25,6 +25,7 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 			<configuration>
+				<cloudHubDeployment></cloudHubDeployment>
                     <sharedLibraries>
                         <sharedLibrary>
                             <groupId>mysql</groupId>
