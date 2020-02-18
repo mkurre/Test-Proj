@@ -41,7 +41,7 @@
 							<anypoint.platform.client_secret>9ecD64DFE2c94Ba0b5f9013121D0a2c9</anypoint.platform.client_secret>
 					      </properties>
                     <sharedLibraries>
-                        <sharedLibrary>
+                        <sharedLibrary>                        
                             <groupId>mysql</groupId>
                             <artifactId>mysql-connector-java</artifactId>
                         </sharedLibrary>
