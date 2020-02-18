@@ -33,7 +33,7 @@
 					      <applicationName>cloudhub-application-Test-proj</applicationName>
 					      <environment>${env}</environment>
 					      <region>eu-west-1</region>
-						  <workers>1</workers>
+						  <workers>1</workers>						  
 						  <workerType>Micro </workerType>
 					      <properties>
 					        <key>value</key>
