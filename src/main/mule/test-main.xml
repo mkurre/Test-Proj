@@ -21,7 +21,8 @@ output application/json
 	Message: value0.planeType,
 	Message2: value0.code1 as String,
 	Message3: value0.takeOffDate,
-	Message4: value0.price
+	Message4: value0.price,
+	Message5: value0.seatsAvailable
 })]]></ee:set-payload>
 			</ee:message>
 			<ee:variables >
