@@ -12,7 +12,7 @@
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+		<muleVersion>4.2.2</muleVersion>
 		<app.runtime>4.2.2</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
@@ -26,6 +26,20 @@
 				<extensions>true</extensions>
 			<configuration>
 				<cloudHubDeployment/>
+					      <uri>https://anypoint.mulesoft.com/</uri>
+					      <muleVersion>${muleVersion}</muleVersion>
+					      <username>pavan_990</username>
+					      <password>Madhav@2020</password>
+					      <applicationName>cloudhub-application-Test-proj</applicationName>
+					      <environment>${env}</environment>
+					      <region>eu-west-1</region>
+						  <workers>1</workers>
+						  <workerType>Micro </workerType>
+					      <properties>
+					        <key>value</key>
+					        <anypoint.platform.client_id>2eacdff47bca4868b1dad73e48ed2b04</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>9ecD64DFE2c94Ba0b5f9013121D0a2c9</anypoint.platform.client_secret>
+					      </properties>
                     <sharedLibraries>
                         <sharedLibrary>
                             <groupId>mysql</groupId>
